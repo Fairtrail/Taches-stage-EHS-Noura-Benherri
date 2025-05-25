@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stage QHSSE – Noura Benherri</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('ef581b1f-e570-44f7-bb0a-8807a41aa10e.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      color: #002B5B;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin: 0;
+      color: #002B5B;
+    }
+
+    .leaves {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 200px);
+      padding-top: 40px;
+    }
+
+    .leaf {
+      position: absolute;
+      background: white;
+      color: #002B5B;
+      padding: 14px 22px;
+      border-radius: 20px;
+      font-size: 1em;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      opacity: 0;
+      animation: floatIn 1s forwards;
+    }
+
+    @keyframes floatIn {
+      0% { transform: scale(0.9) translateY(30px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .qr-code {
+      position: absolute;
+      bottom: 90px;
+      right: 30px;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9em;
+      background: rgba(255, 255, 255, 0.95);
+      color: #002B5B;
+      padding: 10px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://www.airtech.lu/sites/default/files/events/Logo_Airtech_Europe_Web_0_3_1.png" alt="Logo Airtech Europe" />
+    <h1>Tâches effectuées – Stage QHSSE Noura Benherri</h1>
+  </header>
+
+  <div class="leaves" id="leaves"></div>
+
+  <div class="qr-code">
+    <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://example.com/arbre-stage.html&choe=UTF-8" alt="QR Code">
+  </div>
+
+  <footer>
+    Réalisé par Noura Benherri – Stage QHSSE 2025 – Airtech Europe
+  </footer>
+
+  <script>
+    const tasks = [
+      "Mise à jour du registre des déchets",
+      "Analyse des risques Hall 6",
+      "Création de pictogrammes",
+      "Formation FDS avec Florian Sac",
+      "Audit environnemental",
+      "Suivi Seirich (FDS/FSS)",
+      "Projet RSE Mego (mégots)",
+      "Gestion des armoires de secours"
+    ];
+
+    const container = document.getElementById('leaves');
+    const positions = [
+      { top: '20%', left: '15%' },
+      { top: '35%', left: '30%' },
+      { top: '50%', left: '12%' },
+      { top: '40%', left: '70%' },
+      { top: '60%', left: '55%' },
+      { top: '30%', left: '60%' },
+      { top: '65%', left: '30%' },
+      { top: '50%', left: '80%' }
+    ];
+
+    tasks.forEach((task, i) => {
+      const leaf = document.createElement('div');
+      leaf.className = 'leaf';
+      leaf.textContent = task;
+      leaf.style.top = positions[i].top;
+      leaf.style.left = positions[i].left;
+      leaf.style.animationDelay = `${i * 0.5}s`;
+      container.appendChild(leaf);
+    });
+  </script>
+
+</body>
+</html>
